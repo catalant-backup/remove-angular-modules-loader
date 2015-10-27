@@ -13,7 +13,9 @@
   "keywords": [
     "angular",
     "modules",
-    "suck"
+    "suck",
+    "webpack",
+    "webpack-loader"
   ],
   "author": "HourlyNerd Inc",
   "license": "MIT",
