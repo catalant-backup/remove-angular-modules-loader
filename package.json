@@ -1,0 +1,27 @@
+{
+  "name": "remove-angular-modules-loader",
+  "version": "1.0.0",
+  "description": "remove the module system from angular via a webpack loader",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HourlyNerd/remove-angular-modules-loader.git"
+  },
+  "keywords": [
+    "angular",
+    "modules",
+    "suck"
+  ],
+  "author": "HourlyNerd Inc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HourlyNerd/remove-angular-modules-loader/issues"
+  },
+  "homepage": "https://github.com/HourlyNerd/remove-angular-modules-loader#readme",
+  "dependencies": {
+    "loader-utils": "~0.2.11"
+  }
+}
