@@ -3,10 +3,11 @@ var utils = require('loader-utils');
 var tpl = function(moduleName) {
     return "\n\
 (function(a, moduleName) {\n\
-    //remove angular module system, everything is now in the `moduleName` module ;)\n\
+    // remove angular module system, everything is now in the `moduleName` module ;)\n\
+    // except for protractor which does something funny and cant party with us\n\
     var _module = a.bind(a, a.module);\n\
     var m = _module(moduleName, []);\n\
-    a.module = function () { return m;};\n\
+    a.module = function (n, d) { return (n === 'protractorBaseModule_') ? _module(n, d) : m;};\n\
     document.querySelectorAll('[ng-app]')[0].setAttribute('ng-app', moduleName);\n\
 })(window.angular, '"+moduleName+"');\n\
 ";

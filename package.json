@@ -1,6 +1,6 @@
 {
   "name": "remove-angular-modules-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "remove the module system from angular via a webpack loader",
   "main": "index.js",
   "scripts": {

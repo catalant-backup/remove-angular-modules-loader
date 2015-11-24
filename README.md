@@ -22,8 +22,12 @@ moduleName is optional, default module name is 'app'.
 
 # How it works
 
-It patches angular to put everything into a single module.
+It patches angular to put everything into a single module*.
 You no longer need to define module dependencies when creating modules, or names for that matter.
+
+
+* - `protractorBaseModule_` remains its own module because otherwise protractor tests don't work.
+
 
 This is now valid:
 
