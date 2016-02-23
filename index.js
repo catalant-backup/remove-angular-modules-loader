@@ -31,6 +31,7 @@ var tpl = function(opt){
     whiteList.push('protractorBaseModule_');
     if(opt.testing == 'e2e'){
         blackList.push('ngMock');
+        blackList.push('ngAnimateMock'); // see: https://github.com/angular/angular.js/issues/5917
     }
     if(opt.testing == 'unit'){
         blackList.push('ngMockE2E');
