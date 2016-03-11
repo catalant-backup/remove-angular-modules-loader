@@ -1,7 +1,7 @@
 var utils = require('loader-utils');
 
 var tplFn = function(moduleName) {/*
- (function(a, moduleName, whiteList, blackList) {
+ (function(a, moduleName, whiteList, blackList, allowMockModules) {
      // remove angular module system, everything is now in the `moduleName` module ;)
      var mockMethods = ['animation', 'config', 'constant', 'controller', 'decorator', 'run',
                         'directive', 'factory', 'filter', 'provider', 'service', 'value'];
@@ -18,10 +18,13 @@ var tplFn = function(moduleName) {/*
          if(~whiteList.indexOf(n)){
             return _module(n, d);
          }
+         if(allowMockModules && n.match(/Mock$/)){
+            return _module(n, []);
+         }
          return m;
      };
      document.querySelectorAll('[ng-app]')[0].setAttribute('ng-app', moduleName);
- })(window.angular, §1, §2, §3);
+ })(window.angular, §1, §2, §3, §4);
  ;
  */};
 var tpl = function(opt){
@@ -29,16 +32,18 @@ var tpl = function(opt){
     var whiteList = opt.whiteList || [];
     var blackList = opt.blackList || [];
     whiteList.push('protractorBaseModule_');
-    if(opt.testing == 'e2e'){
+
+    if (opt.testing == 'e2e') {
         blackList.push('ngMock');
-        blackList.push('ngAnimateMock'); // see: https://github.com/angular/angular.js/issues/5917
-    }
-    if(opt.testing == 'unit'){
+        blackList.push('ngAnimateMock');
+    } else if (opt.testing == 'unit') {
         blackList.push('ngMockE2E');
     }
+
     str = str.replace('§1', JSON.stringify(opt.moduleName || 'app'));
     str = str.replace('§2', JSON.stringify(whiteList));
     str = str.replace('§3', JSON.stringify(blackList));
+    str = str.replace('§4', JSON.stringify(!!opt.testing));
     return str;
 }
 
