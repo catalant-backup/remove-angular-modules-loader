@@ -23,7 +23,8 @@ var tplFn = function(moduleName) {/*
          }
          return m;
      };
-     document.querySelectorAll('[ng-app]')[0].setAttribute('ng-app', moduleName);
+     var node = document.querySelectorAll('[ng-app]');
+     node && node[0] && node[0].setAttribute('ng-app', moduleName);
  })(window.angular, §1, §2, §3, §4);
  ;
  */};
